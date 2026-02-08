@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jsPDF } from "jspdf";
 import toast from "react-hot-toast";
+import { API } from "../api";
 
 function ViewReport() {
   const [reports, setReports] = useState([]);
@@ -19,7 +20,7 @@ function ViewReport() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/reports/user", {
+      const res = await axios.get(`${API}/reports/user`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReports(res.data);
@@ -72,7 +73,7 @@ function ViewReport() {
             <div key={report._id} className="bg-white p-6 rounded-xl shadow-lg space-y-4">
               <div>
                 <h2 className="text-xl font-bold flex gap-2 items-center">
-                  <FileText className="text-blue-600"/> {report.reportType} - {new Date(report.reportDate).toLocaleDateString()}
+                  <FileText className="text-blue-600" /> {report.reportType} - {new Date(report.reportDate).toLocaleDateString()}
                 </h2>
                 <div className="border mt-4 rounded-lg aspect-[4/3] flex items-center justify-center bg-gray-50">
                   <p className="text-gray-500">📄 PDF Preview Coming Soon</p>
@@ -81,7 +82,7 @@ function ViewReport() {
 
               <div>
                 <h2 className="text-xl font-bold flex gap-2 items-center">
-                  <Bot className="text-green-600"/> AI Summary
+                  <Bot className="text-green-600" /> AI Summary
                 </h2>
                 <p className="text-gray-700 mt-3 leading-relaxed whitespace-pre-line">
                   {report.aiSummary.substring(0, 150)}...
@@ -93,13 +94,13 @@ function ViewReport() {
                   onClick={() => downloadPDF(report)}
                   className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition"
                 >
-                  <Download className="h-4 w-4"/> Download PDF
+                  <Download className="h-4 w-4" /> Download PDF
                 </button>
                 <button
                   onClick={() => navigate(`/reports/${report._id}`)}
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition"
                 >
-                  <Eye className="h-4 w-4"/> View Details
+                  <Eye className="h-4 w-4" /> View Details
                 </button>
               </div>
             </div>

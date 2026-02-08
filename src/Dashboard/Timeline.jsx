@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API } from "../api";
 
 function Timeline() {
   const [timeline, setTimeline] = useState([]);
@@ -17,12 +18,12 @@ function Timeline() {
       const token = localStorage.getItem("token");
 
       // Fetch Vitals
-      const vitalsRes = await axios.get("http://localhost:5000/api/vitals", {
+      const vitalsRes = await axios.get(`${API}/vitals`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
       // Fetch Reports
-      const reportsRes = await axios.get("http://localhost:5000/api/reports/user", {
+      const reportsRes = await axios.get(`${API}/reports/user`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
