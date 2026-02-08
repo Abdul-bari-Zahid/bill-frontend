@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { Bot, FileText, Download, Eye } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { jsPDF } from "jspdf";
 import toast from "react-hot-toast";
 import { API } from "../api";
@@ -20,7 +19,7 @@ function ViewReport() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`${API}/reports/user`, {
+      const res = await API.get("/reports/user", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReports(res.data);
