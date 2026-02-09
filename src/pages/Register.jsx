@@ -15,8 +15,10 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const res = await API.post("auth/register", form,{withCredentials: true });
+      const res = await API.post("auth/register", form, { withCredentials: true });
       toast.success("Account created! ✅");
+
+      localStorage.setItem("token", res.data.token);
 
       setTimeout(() => navigate("/dashboard"), 800);
 
