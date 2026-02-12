@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./Dashboard/Dashboard.jsx";
 import Register from "./pages/Register.jsx";
-import UploadReport from "./Dashboard/UploadReport.jsx";
-import AddVitals from "./Dashboard/AddVitals.jsx";
-import ReportDetail from "./Dashboard/ReportDetails.jsx";
-import Timeline from "./Dashboard/Timeline.jsx";
-
-import ViewReport from "./Dashboard/ViewReport.jsx";
+import UploadBill from "./Dashboard/UploadBill.jsx";
+import BillOptimizer from "./Dashboard/BillOptimizer";
+import BillAnalysis from "./Dashboard/BillAnalysis";
+import BillHistory from "./Dashboard/BillHistory";
+import MyBills from "./Dashboard/MyBills";
+import SavingsCalculator from "./Dashboard/SavingsCalculator";
 import Protect from "./protected/Protect.jsx";
+
 export default function App() {
   return (
     <>
@@ -21,54 +22,48 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           element={
             <Protect>
               <Dashboard />
             </Protect>
-          } 
+          }
         />
-        <Route 
-          path="/uploadreport" 
+        <Route
+          path="/upload-bill"
           element={
             <Protect>
-              <UploadReport />
+              <UploadBill />
             </Protect>
-          } 
+          }
         />
-        <Route 
-          path="/advitals" 
+        <Route
+          path="/bill-optimizer"
           element={
             <Protect>
-              <AddVitals />
+              <BillOptimizer />
             </Protect>
-          } 
+          }
         />
-        <Route 
-          path="/viewReport" 
+        <Route
+          path="/my-bills"
           element={
             <Protect>
-              <ViewReport />
+              <MyBills />
             </Protect>
-          } 
+          }
         />
-        <Route 
-          path="/reports/:id" 
+        <Route
+          path="/bills/:id"
           element={
             <Protect>
-              <ReportDetail />
+              <BillAnalysis />
             </Protect>
-          } 
+          }
         />
-        <Route 
-          path="/timeline" 
-          element={
-            <Protect>
-              <Timeline />
-            </Protect>
-          } 
-        />
+        <Route path="/bill-history" element={<Protect><BillHistory /></Protect>} />
+        <Route path="/savings-calculator" element={<Protect><SavingsCalculator /></Protect>} />
       </Routes>
 
       <Footer />

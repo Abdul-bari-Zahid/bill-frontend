@@ -1,44 +1,43 @@
-import React from 'react';
-import { FileSearch, ShieldCheck, Stethoscope, Zap, MessageSquare, HeartPulse } from 'lucide-react';
+import { FileSearch, ShieldCheck, Zap, MessageSquare, LineChart, Bell } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function Features() {
     const items = [
         {
-            title: 'Report Interpretation',
-            desc: 'Automatically translate complex medical jargon into plain, easy-to-understand language.',
-            icon: <FileSearch className="text-blue-600" size={24} />,
-            color: 'bg-blue-50'
+            title: 'Tax Breakdown',
+            desc: 'Automatically itemize hidden taxes and service charges into clear, categorized insights.',
+            icon: <FileSearch className="text-orange-500" size={24} />,
+            color: 'bg-orange-500/10'
         },
         {
-            title: 'Symptom Checker',
-            desc: 'AI-assisted triage to suggest urgency and provide clear, actionable next steps.',
-            icon: <Stethoscope className="text-teal-600" size={24} />,
-            color: 'bg-teal-50'
+            title: 'Savings Optimizer',
+            desc: 'Get AI-driven tips on reducing your utility consumption based on historical patterns.',
+            icon: <Zap className="text-amber-500" size={24} />,
+            color: 'bg-amber-500/10'
         },
         {
-            title: 'Secure & Private',
-            desc: 'Healthcare-grade encryption ensures your records are always safe and under your control.',
-            icon: <ShieldCheck className="text-purple-600" size={24} />,
-            color: 'bg-purple-50'
+            title: 'Secure Vault',
+            desc: 'Banking-grade encryption ensures your financial records are safe and strictly private.',
+            icon: <ShieldCheck className="text-orange-600" size={24} />,
+            color: 'bg-orange-600/10'
         },
         {
-            title: 'Bilingual Support',
-            desc: 'Get interpretations in both English and Roman Urdu for better accessibility.',
-            icon: <MessageSquare className="text-orange-600" size={24} />,
-            color: 'bg-orange-50'
+            title: 'Bilingual Insights',
+            desc: 'Get complex financial terms explained in both English and Roman Urdu for clarity.',
+            icon: <MessageSquare className="text-amber-600" size={24} />,
+            color: 'bg-amber-600/10'
         },
         {
-            title: 'Instant Analysis',
-            desc: 'No more waiting for days. Get your medical reports analyzed in just a few seconds.',
-            icon: <Zap className="text-yellow-600" size={24} />,
-            color: 'bg-yellow-50'
+            title: 'Trend Analysis',
+            desc: 'Monitor your spending over the last 6 months with interactive, beautiful charts.',
+            icon: <LineChart className="text-orange-500" size={24} />,
+            color: 'bg-orange-500/10'
         },
         {
-            title: 'Health Tracking',
-            desc: 'Monitor your vitals and health trends over time with our integrated dashboard.',
-            icon: <HeartPulse className="text-red-600" size={24} />,
-            color: 'bg-red-50'
+            title: 'Budget Alerts',
+            desc: 'Set custom thresholds and get notified before you exceed your monthly budget.',
+            icon: <Bell className="text-amber-500" size={24} />,
+            color: 'bg-amber-500/10'
         },
     ];
 
@@ -46,10 +45,23 @@ function Features() {
         <section id="features" className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3">Our Features</h2>
-                    <h3 className="text-4xl font-bold text-slate-900 mb-6">Innovative Tools for Your Health</h3>
-                    <p className="text-lg text-slate-600">
-                        A suite of AI-powered tools built with clinical safety and user clarity at its core.
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-orange-600 font-bold tracking-wider uppercase text-sm mb-3"
+                    >
+                        Our Features
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl font-black text-slate-900 mb-6 tracking-tight"
+                    >
+                        Master Your Utility Bills
+                    </motion.h3>
+                    <p className="text-lg text-slate-500">
+                        A suite of AI-powered financial tools built to save you money and simplify your taxes.
                     </p>
                 </div>
 
@@ -61,13 +73,14 @@ function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="p-8 rounded-3xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-xl hover:border-blue-100 transition-all duration-300 group"
+                            className="p-10 rounded-[2.5rem] border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-orange-500/20 hover:shadow-2xl hover:shadow-orange-500/5 transition-all duration-500 group relative overflow-hidden"
                         >
-                            <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                            <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
                                 {item.icon}
                             </div>
-                            <h4 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h4>
-                            <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                            <h4 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">{item.title}</h4>
+                            <p className="text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 blur-[80px] group-hover:bg-orange-500/10 transition-colors"></div>
                         </motion.div>
                     ))}
                 </div>

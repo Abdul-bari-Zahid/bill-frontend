@@ -28,33 +28,46 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-xl">
-        <h2 className="text-3xl font-bold text-center text-blue-600">MediAI</h2>
-        <h3 className="mt-2 text-center text-xl font-semibold text-gray-800">Create account</h3>
-        <p className="text-center text-sm text-gray-500 mb-6">
-          Already have an account? <Link to="/login" className="text-blue-600 font-medium">Login</Link>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center p-4">
+      <div className="bg-white w-full max-w-md p-10 rounded-3xl shadow-xl border border-orange-100">
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 p-0.5 mb-4 shadow-lg shadow-orange-500/20">
+            <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
+              <span className="text-orange-600 font-black text-2xl">S</span>
+            </div>
+          </div>
+          <h2 className="text-4xl font-black text-slate-900 tracking-tight">SmartBill</h2>
+          <p className="text-slate-500 font-medium mt-1">Join the savings revolution</p>
+        </div>
+        <p className="text-center text-sm text-slate-500 mb-8 font-medium">
+          Already have an account? <Link to="/login" className="text-orange-600 font-bold hover:underline">Sign In</Link>
         </p>
 
-        <form onSubmit={handleSubmit}>
-          <label className="text-sm font-medium">Full Name</label>
-          <input name="name" value={form.name} onChange={handleChange}
-            type="text" placeholder="Enter your name"
-            className="w-full mt-1 mb-3 p-3 border rounded-lg" required />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
+            <input name="name" value={form.name} onChange={handleChange}
+              type="text" placeholder="John Doe"
+              className="w-full mt-1.5 p-4 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500/20 bg-slate-50 focus:bg-white transition-all" required />
+          </div>
 
-          <label className="text-sm font-medium">Email address</label>
-          <input name="email" value={form.email} onChange={handleChange}
-            type="email" placeholder="Enter your email"
-            className="w-full mt-1 mb-3 p-3 border rounded-lg" required />
+          <div>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email address</label>
+            <input name="email" value={form.email} onChange={handleChange}
+              type="email" placeholder="you@example.com"
+              className="w-full mt-1.5 p-4 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500/20 bg-slate-50 focus:bg-white transition-all" required />
+          </div>
 
-          <label className="text-sm font-medium">Password</label>
-          <input name="password" value={form.password} onChange={handleChange}
-            type="password" placeholder="Create password"
-            className="w-full mt-1 mb-3 p-3 border rounded-lg" required />
+          <div>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
+            <input name="password" value={form.password} onChange={handleChange}
+              type="password" placeholder="Create password"
+              className="w-full mt-1.5 p-4 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500/20 bg-slate-50 focus:bg-white transition-all" required />
+          </div>
 
           <button type="submit"
-            className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition">
-            Register
+            className="w-full bg-orange-600 text-white py-4 rounded-2xl font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-500/30 active:scale-95 mt-4">
+            Create Free Account
           </button>
         </form>
       </div>

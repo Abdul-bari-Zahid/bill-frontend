@@ -13,57 +13,64 @@ export default function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await API.post("/auth/login", form, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,  
-    });
+    try {
+      const res = await API.post("/auth/login", form, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
 
-    toast.success("Login successful ✅");
- 
-    localStorage.setItem("token", res.data.token);
+      toast.success("Login successful ✅");
 
-    setTimeout(() => navigate("/dashboard"), 800);
+      localStorage.setItem("token", res.data.token);
 
-  } catch (err) {
-    toast.error(err?.response?.data?.message || "Login failed ❌");
-  }
-};
+      setTimeout(() => navigate("/dashboard"), 800);
+
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Login failed ❌");
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4">
-      <div className="bg-white w-full max-w-md p-8 rounded-2xl shadow-lg border border-gray-200">
-        <h2 className="text-4xl font-bold text-center text-blue-600">MediAI</h2>
-        <p className="text-center mt-1 text-gray-600">Sign in to your account</p>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100 flex items-center justify-center p-4">
+      <div className="bg-white w-full max-w-md p-10 rounded-3xl shadow-xl border border-orange-100">
+        <div className="flex flex-col items-center mb-8">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 p-0.5 mb-4 shadow-lg shadow-orange-500/20">
+            <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
+              <span className="text-orange-600 font-black text-2xl">S</span>
+            </div>
+          </div>
+          <h2 className="text-4xl font-black text-slate-900 tracking-tight">SmartBill</h2>
+          <p className="text-slate-500 font-medium mt-1">Sign in to your account</p>
+        </div>
 
-        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="text-sm font-medium">Email</label>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email address</label>
             <input name="email" value={form.email} onChange={handleChange}
               type="email" placeholder="you@example.com" required
-              className="w-full mt-1 p-3 border rounded-lg" />
+              className="w-full mt-1.5 p-4 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500/20 bg-slate-50 focus:bg-white transition-all" />
           </div>
 
           <div>
-            <label className="text-sm font-medium">Password</label>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Password</label>
             <input name="password" value={form.password} onChange={handleChange}
-              type="password" placeholder="Enter password" required
-              className="w-full mt-1 p-3 border rounded-lg" />
+              type="password" placeholder="••••••••" required
+              className="w-full mt-1.5 p-4 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-orange-500/20 bg-slate-50 focus:bg-white transition-all" />
           </div>
 
           <button type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-            Login
+            className="w-full bg-orange-600 text-white py-4 rounded-2xl font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-500/30 active:scale-95 mt-4">
+            Sign In
           </button>
         </form>
 
-        <p className="text-center text-sm mt-6 text-gray-600">
-          Don’t have an account? <Link className="text-blue-600 font-medium" to="/register">Register</Link>
+        <p className="text-center text-sm mt-8 text-slate-500 font-medium">
+          Don’t have an account? <Link className="text-orange-600 font-bold hover:underline" to="/register">Create one for free</Link>
         </p>
       </div>
     </div>

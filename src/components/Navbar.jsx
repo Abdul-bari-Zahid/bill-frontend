@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import React from "react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import { Menu, X, ChevronDown, LayoutDashboard, FileUp, Clock, FileText, Activity, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown, LayoutDashboard, FileUp, Clock, FileText, Activity, LogOut, Calculator } from "lucide-react";
 import logo from '../../public/ai-doctor-assistant.png'
-
+// import { API } from "../config";
+import { Package } from "lucide-react";
 function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -43,14 +44,14 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-teal-500 p-0.5 transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 p-0.5 transition-transform group-hover:scale-105">
               <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center overflow-hidden">
-                <img src={logo} alt="MediAI Logo" className="w-8 h-8 object-contain" />
+                <FileText className="text-orange-500 w-6 h-6" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">MediAI</span>
-              <span className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">AI Assistant</span>
+              <span className="text-xl font-bold tracking-tight text-slate-900">SmartBill</span>
+              <span className="text-[10px] uppercase tracking-widest text-orange-600 font-semibold">Savings Optimizer</span>
             </div>
           </Link>
         </div>
@@ -61,7 +62,7 @@ function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+              className="text-sm font-medium text-slate-600 hover:text-orange-600 transition-colors"
             >
               {link.name}
             </a>
@@ -86,26 +87,32 @@ function Navbar() {
                 <>
                   <div className="fixed inset-0 z-[-1]" onClick={() => setMenuOpen(false)}></div>
                   <div className="absolute right-0 mt-3 w-56 glass rounded-2xl p-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-                    <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 rounded-xl text-slate-700 transition-colors">
-                      <LayoutDashboard size={18} className="text-blue-500" />
+                    <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <LayoutDashboard size={18} className="text-orange-500" />
                       <span className="text-sm font-medium">Dashboard Overview</span>
                     </Link>
                     <div className="h-px bg-slate-100 my-1 mx-2"></div>
-                    <Link to="/uploadreport" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 rounded-xl text-slate-700 transition-colors">
-                      <FileUp size={18} className="text-blue-500" />
-                      <span className="text-sm font-medium">Upload Report</span>
+                    <Link to="/upload-bill" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <FileUp size={18} className="text-orange-500" />
+                      <span className="text-sm font-medium">Analyze New Bill</span>
                     </Link>
-                    <Link to="/timeline" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 rounded-xl text-slate-700 transition-colors">
-                      <Clock size={18} className="text-blue-500" />
-                      <span className="text-sm font-medium">Timeline</span>
+                    <Link to="/bill-history" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <Clock size={18} className="text-orange-500" />
+                      <span className="text-sm font-medium">Bill History</span>
                     </Link>
-                    <Link to="/viewReport" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 rounded-xl text-slate-700 transition-colors">
-                      <FileText size={18} className="text-blue-500" />
-                      <span className="text-sm font-medium">View Report</span>
+
+                    <Link to="/my-bills" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <Package size={18} className="text-orange-500" />
+                      <span className="text-sm font-medium">My Bills</span>
                     </Link>
-                    <Link to="/advitals" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-blue-50 rounded-xl text-slate-700 transition-colors">
-                      <Activity size={18} className="text-blue-500" />
-                      <span className="text-sm font-medium">Add Vitals</span>
+
+                    <Link to="/savings-calculator" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <Calculator size={18} className="text-orange-500" />
+                      <span className="text-sm font-medium">Savings Calculator</span>
+                    </Link>
+                    <Link to="/bill-optimizer" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
+                      <Activity size={18} className="text-orange-500" />
+                      <span className="text-sm font-medium">Bill Optimizer</span>
                     </Link>
                     <div className="h-px bg-slate-100 my-2 mx-2"></div>
                     <button
