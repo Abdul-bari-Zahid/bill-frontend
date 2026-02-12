@@ -16,14 +16,14 @@ export default function Register() {
 
     try {
       const res = await API.post("auth/register", form, { withCredentials: true });
-      toast.success("Account created! ✅");
+      toast.success("Account created!");
 
       localStorage.setItem("token", res.data.token);
 
       setTimeout(() => navigate("/dashboard"), 800);
 
     } catch (err) {
-      toast.error(err?.response?.data?.message || "Register failed ❌");
+      toast.error(err?.response?.data?.message || "Register failed");
     }
   };
 

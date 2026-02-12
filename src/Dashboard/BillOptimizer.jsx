@@ -47,10 +47,10 @@ function BillOptimizer() {
     try {
       const res = await API.post("/bill-suggestions/add", { ...form, taxes });
       setBillResult(res.data.bill);
-      toast.success("✅ Optimization report generated");
+      toast.success("Optimization report generated");
     } catch (err) {
       console.error(err);
-      toast.error("❌ Error generating suggestions");
+      toast.error("Error generating suggestions");
     } finally {
       setLoading(false);
     }

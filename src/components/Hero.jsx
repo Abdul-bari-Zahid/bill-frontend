@@ -77,13 +77,13 @@ function Hero() {
                                 </Link>
                             ) : (
                                 <Link to="/upload-bill" className="btn-primary flex items-center gap-2 group">
-                                    Analyze Your Bill
+                                    Upload Your Bill
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             )}
                             <Link to="/bill-optimizer" className="btn-secondary flex items-center gap-2 group">
                                 <Activity size={18} />
-                                Savings Optimizer
+                                Manual Optimizer
                             </Link>
                         </motion.div>
 

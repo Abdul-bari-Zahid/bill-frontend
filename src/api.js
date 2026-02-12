@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "https://bill-backend-six.vercel.app/api", // backend URL
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api", // backend URL
   withCredentials: true, // JWT cookie
 });
 

@@ -24,14 +24,14 @@ export default function Login() {
         withCredentials: true,
       });
 
-      toast.success("Login successful ✅");
+      toast.success("Login successful");
 
       localStorage.setItem("token", res.data.token);
 
       setTimeout(() => navigate("/dashboard"), 800);
 
     } catch (err) {
-      toast.error(err?.response?.data?.message || "Login failed ❌");
+      toast.error(err?.response?.data?.message || "Login failed");
     }
   };
 

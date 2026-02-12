@@ -22,7 +22,7 @@ function MyBills() {
       setBills(res.data);
     } catch (err) {
       console.error(err);
-      toast.error("Failed to fetch bills ❌");
+      toast.error("Failed to fetch bills");
     } finally {
       setLoading(false);
     }

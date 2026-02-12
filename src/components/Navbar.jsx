@@ -27,7 +27,7 @@ function Navbar() {
     localStorage.removeItem("token");
     setLoggedIn(false);
     window.location.href = "/";
-    toast.success("Logged out successfully ✅");
+    toast.success("Logged out successfully");
   }
 
   const navLinks = [

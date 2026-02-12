@@ -38,10 +38,10 @@ function UploadBill() {
         },
       });
 
-      toast.success("Bill analyzed ✅");
+      toast.success("Bill analyzed");
       setBillResult(res.data.bill);
     } catch (err) {
-      toast.error(err.response?.data?.error || "Analysis failed ❌");
+      toast.error(err.response?.data?.error || "Analysis failed");
       console.error(err);
     } finally {
       setLoading(false);
