@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
-import logo from '../../public/ai-doctor-assistant.png'
+import logo from '../../public/images.png'
 import { FileText } from "lucide-react";
 function Footer() {
     const currentYear = new Date().getFullYear();

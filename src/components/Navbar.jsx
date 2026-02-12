@@ -3,7 +3,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { Menu, X, ChevronDown, LayoutDashboard, FileUp, Clock, FileText, Activity, LogOut, Calculator } from "lucide-react";
-import logo from '../../public/ai-doctor-assistant.png'
+import logo from '../../public/images.png'
 // import { API } from "../config";
 import { Package } from "lucide-react";
 function Navbar() {
@@ -94,25 +94,15 @@ function Navbar() {
                     <div className="h-px bg-slate-100 my-1 mx-2"></div>
                     <Link to="/upload-bill" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
                       <FileUp size={18} className="text-orange-500" />
-                      <span className="text-sm font-medium">Analyze New Bill</span>
+                      <span className="text-sm font-medium">Upload New Bill</span>
                     </Link>
-                    <Link to="/bill-history" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
-                      <Clock size={18} className="text-orange-500" />
-                      <span className="text-sm font-medium">Bill History</span>
-                    </Link>
-
                     <Link to="/my-bills" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
                       <Package size={18} className="text-orange-500" />
                       <span className="text-sm font-medium">My Bills</span>
                     </Link>
-
-                    <Link to="/savings-calculator" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
-                      <Calculator size={18} className="text-orange-500" />
-                      <span className="text-sm font-medium">Savings Calculator</span>
-                    </Link>
                     <Link to="/bill-optimizer" onClick={() => setMenuOpen(false)} className="flex items-center gap-3 px-3 py-2.5 hover:bg-orange-50 rounded-xl text-slate-700 transition-colors">
                       <Activity size={18} className="text-orange-500" />
-                      <span className="text-sm font-medium">Bill Optimizer</span>
+                      <span className="text-sm font-medium">Manual Bill Optimizer</span>
                     </Link>
                     <div className="h-px bg-slate-100 my-2 mx-2"></div>
                     <button

@@ -103,10 +103,10 @@ const Dashboard = () => {
 
         <div className="flex flex-wrap gap-4">
           <Link to="/upload-bill" className="bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-orange-900/10 flex items-center gap-2">
-            <PlusCircle size={20} /> Analyze Bill
+            <PlusCircle size={20} /> Upload Bill
           </Link>
           <Link to="/bill-optimizer" className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-900 px-6 py-3 rounded-2xl font-bold transition-all flex items-center gap-2 shadow-sm">
-            <Target size={20} className="text-orange-500" /> Optimize Savings
+            <Target size={20} className="text-orange-500" /> Optimize Manually
           </Link>
         </div>
       </div>
@@ -120,7 +120,7 @@ const Dashboard = () => {
           <p className="text-slate-500 font-bold text-xs uppercase tracking-widest mb-1">Total Monthly Bill</p>
           <h3 className="text-4xl font-black text-slate-900 mb-2">Rs {totalSpent.toFixed(2)}</h3>
           <div className="flex items-center gap-2 text-red-500 text-sm font-bold">
-            <TrendingUp size={16} /> +12% from last month
+            Total Amount
           </div>
         </motion.div>
 

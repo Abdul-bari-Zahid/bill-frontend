@@ -8,9 +8,7 @@ import Register from "./pages/Register.jsx";
 import UploadBill from "./Dashboard/UploadBill.jsx";
 import BillOptimizer from "./Dashboard/BillOptimizer";
 import BillAnalysis from "./Dashboard/BillAnalysis";
-import BillHistory from "./Dashboard/BillHistory";
 import MyBills from "./Dashboard/MyBills";
-import SavingsCalculator from "./Dashboard/SavingsCalculator";
 import Protect from "./protected/Protect.jsx";
 
 export default function App() {
@@ -62,8 +60,6 @@ export default function App() {
             </Protect>
           }
         />
-        <Route path="/bill-history" element={<Protect><BillHistory /></Protect>} />
-        <Route path="/savings-calculator" element={<Protect><SavingsCalculator /></Protect>} />
       </Routes>
 
       <Footer />
